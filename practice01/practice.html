@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function queue_template(){
+            this.data = [];
+            this.get_next = function(){
+                var result = this.data.shift();
+                return result;
+            };
+            this.add_each_data = function(item){
+                this.data.push(item); //item already pushed into the array.
+                return this.data.length;
+            }
+
+        }
+
+        function stack_template(){ //completed for stack data structure type
+            this.data = [];
+            this.get_last = function (){
+                var result = this.data.pop();
+                return result;
+            };
+            this.break_array = function(input_array){
+                for(var j = 0; j < input_array.length ; j++){
+                    this.add_each_data(input_array[j]);
+                }
+            };
+            this.user_insert_input = function(){
+                if(arguments.length > 1){
+                    console.log("we have multiple arguments");
+                    for(var i =0; i < arguments.length; i++){
+                        if(Array.isArray(arguments[i])){//check if each parameter is array.
+                            ////if so, break it into parts and push each item to the data
+                            this.break_array(arguments[i]);
+                        }
+                        else{
+                            this.add_each_data(arguments[i]);////else, use for loop to push each item to the data
+                        }
+                    }
+                }
+                else{
+                    if(Array.isArray(arguments[0])){////check if the parameter is array
+                        this.break_array(arguments[0]);
+                    }
+                    else{
+                        this.add_each_data(arguments[0]);//else push the parameter to the input
+                    }
+
+                }
+            }
+            this.add_each_data = function(item){
+                var result = this.data.push(item);
+                console.log(result);
+                return result;
+            }
+        }
+
+        var my_stack = new stack_template();
+        var my_queue = new queue_template();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
