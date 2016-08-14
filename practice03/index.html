@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>One to Multi</title>
+<head> <meta charset="UTF-8"> <title>One to Multi</title>
     <script>
-var myArray = ['hello', 34, true, false, 'goodbye', 56, 12, '25', true];
+var myArray = [34, true, false, 'goodbye', 56, 12, '25', true,'hello'];
+
 function groupArray(array_param){
-    var new_array = [];
-    var obj_inside_array = {};
-    for(var i = 0 ; i < array_param.length ; i++){
-        var types = typeof(array_param[i])
-        obj_inside_array.type = types;
-        obj_inside_array.value = array_param[i];
-        new_array.push(obj_inside_array);
+    var result = {};
+    var answerArr = [];
+    for(var i = 0; i < array_param.length; i++){
+        var type = typeof(array_param[i]);
+        if(result.hasOwnProperty(type) == false){
+            result[type] = [array_param[i]];
+        }
+        else{
+            result[type][result[type].length] = array_param[i];
+        }
     }
-    console.log(new_array);
+    for(property in result){
+        answerArr.push(result[property]);
+    }
+    console.log('answer is : ',answerArr);
 }
 //groupArray(myArray);
     </script>

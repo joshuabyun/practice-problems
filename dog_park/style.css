@@ -1,0 +1,17 @@
+body{
+    width:100vw;
+    height:100vh;
+}
+#game-area{
+    width:100%;
+    height:100%;
+    background-color: lightblue;
+}
+.actor{
+    height:10%;
+    width:10%;
+    background-image: url(https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg);
+    background-size: cover; /*contain vs cover*/
+    background-repeat: no-repeat;
+    /*background-position : center;*/
+}

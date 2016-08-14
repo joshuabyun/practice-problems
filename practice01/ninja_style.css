@@ -1,0 +1,40 @@
+body{
+    height:100vh;
+    width:100vw;
+}
+.parent{
+    background-color:yellow;
+    border: green 1px solid;
+    height:50%;
+    width: 50%;
+    position:relative;
+    display:inline-block;
+}
+.divSpin {
+    z-index:10;
+    -webkit-animation-name: spinnerRotate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;  /*specifies the speed curve of an animation*/
+}
+
+@-webkit-keyframes spinnerRotate
+{
+    from{-webkit-transform:rotate(0deg);}
+    to{-webkit-transform:rotate(360deg);}
+}
+.picture{
+    height:90%;
+    width:90%;
+    background-color: blue;
+    position:absolute;
+    z-index:1;
+}
+.cloud{
+    height:30%;
+    width:30%;
+    background-color: black;
+    border:red 1px solid;
+    position:relative;
+    display:inline-block;
+}
