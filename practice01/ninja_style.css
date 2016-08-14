@@ -1,6 +1,9 @@
+*{
+    font-size:0;
+}
 body{
     height:100vh;
-    width:100vw;
+    width:100vh;
 }
 .parent{
     background-color:yellow;
@@ -10,31 +13,73 @@ body{
     position:relative;
     display:inline-block;
 }
+.divExpandSm{
+    z-index:10;
+    -webkit-animation-name: divExpandSmAnimate;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-iteration-count: 7;
+}
+.divExpandLg {
+    z-index: 10;
+    -webkit-animation-name: divExpandLgAnimate;
+    -webkit-animation-duration: .15s;
+    -webkit-animation-iteration-count: 14;
+}
 .divSpin {
     z-index:10;
     -webkit-animation-name: spinnerRotate;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: linear;  /*specifies the speed curve of an animation*/
+    -webkit-animation-duration: .3s;
+    -webkit-animation-iteration-count: 7;
 }
-
-@-webkit-keyframes spinnerRotate
-{
+@-webkit-keyframes spinnerRotate {
     from{-webkit-transform:rotate(0deg);}
     to{-webkit-transform:rotate(360deg);}
 }
+@-webkit-keyframes divExpandLgAnimate
+{
+    from{-webkit-transform:scale(2,2);}
+    to{-webkit-transform:scale(6,6);}
+}
+@-webkit-keyframes divExpandSmAnimate
+{
+    from{-webkit-transform:scale(1,1);}
+    to{-webkit-transform:scale(3,3);}
+}
 .picture{
+    background-image: url("../practice01/img/harry_potter.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
     height:90%;
     width:90%;
-    background-color: blue;
+    background-color: lightblue;
     position:absolute;
     z-index:1;
 }
-.cloud{
+.pictureBack{
+    background-image: url("../practice01/img/card_back.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    height:90%;
+    width:90%;
+    background-color: lightblue;
+    position:absolute;
+    z-index:1;
+}
+.cloud, .cloudSm{
     height:30%;
     width:30%;
-    background-color: black;
-    border:red 1px solid;
+    background-image :url( "../practice01/img/smoke6.png");
+    background-size:cover;
     position:relative;
     display:inline-block;
+
 }
+/*.cloudSpin{*/
+    /*height:50%;*/
+    /*width:50%;*/
+    /*background-image :url( "../practice01/img/smoke6.png");*/
+    /*background-size:cover;*/
+    /*position:relative;*/
+    /*display:inline-block;*/
+/*}*/
+
