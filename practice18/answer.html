@@ -52,11 +52,12 @@
         //and loops through every other outer item(array)
         //calls a function to do something each loop
         function lookThroughArray(inputArr){
+            console.log('original inputArr', inputArr);
             //loop through outer arrays, but increment by 2
             for(var i = 0; i<inputArr.length;i+=2){
                 //loop through inner arrays, increment by 2
                 for(var j = 0; j < inputArr[0].length;j+=2){
-                    //calls a functiono do an action each loop
+                    //calls a function do an action each loop
                 var each_item = getArrItem(inputArr,i,j,pushItoToArr); //gets an array of 4 items
                 var avg = calculateAvg(each_item); //gives a number (avg)
                 var finalVal = getArrItem(inputArr,i,j,changeArrItem,avg)
