@@ -3,12 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-
-
-    </script>
+    <script src="answer.js"></script>
 </head>
 <body>
+<script>
+    var input_array =
+            [
+                [0, 1, 1, 2, 2, 3, 3, 4, 10, 12],
+                [0, 1, 1, 2, 2, 3, 3, 4, 10, 12],
+                [4, 5, 5, 6, 6, 7, 7, 8, 10, 15],
+                [4, 5, 5, 6, 6, 7, 7, 8, 10, 15]
+            ];
 
+    //create a function that takes two params(an item and array) and pushes it to the array.
+    function pushItoToArr(inputArr,outerArrPos,innerArrPos,outputArr){
+        outputArr.push(inputArr[outerArrPos][innerArrPos]);//push returns the new length of the array
+    }
+
+    //create a function that takes in 5 params, and changes the value at a certain position to the avg.
+    function changeArrItem(inputArr,outerPos,innerPos,outputArr,avg){
+        //need a start pos.
+        inputArr[outerPos].splice(innerPos,1,avg);
+        return(inputArr);
+    }
+
+
+    //this function only loops through 2items in one item and 2 additional items in the next array.
+    //it calls a function to execute an action
+    //create a function that takes 4 params, inputArr, horizontalStartPos, verticalStartPos,functionToExecute
+    function getArrItem(inputArr,outerStart,innerStart,functionToBeExecuted,avg){ //
+        var outputArr = [];
+        for(var i = 0; i < 2; i++){
+            //loop through all outer array
+            for(var j = 0; j < 2; j++){
+            //loop through same inner number array pos
+                var output = functionToBeExecuted(inputArr,outerStart+i,innerStart+j,outputArr,avg);//param1 input array, param2 outer pos, param3 inner pos, param4 output arr4
+            }
+        }
+        if(outputArr.length > 0){
+            return outputArr;
+        }
+        else{ t
+                return output;
+            }
+        }
+
+        //this function takes a 2 dimensional array (even-number of arrays inside) and loops through every other item inside the inner loop,
+        //and loops through every other outer item(array)
+        //calls a function to do something each loop
+        function lookThroughArray(inputArr){
+            //loop through outer arrays, but increment by 2
+            for(var i = 0; i<inputArr.length;i+=2){
+                //loop through inner arrays, increment by 2
+                for(var j = 0; j < inputArr[0].length;j+=2){
+                    //calls a functiono do an action each loop
+                var each_item = getArrItem(inputArr,i,j,pushItoToArr); //gets an array of 4 items
+                var avg = calculateAvg(each_item); //gives a number (avg)
+                var finalVal = getArrItem(inputArr,i,j,changeArrItem,avg)
+            }
+        }
+        console.log("the final value ; ",finalVal);
+        console.log("inputArr",inputArr);
+    }
+
+    //this function takes an array of 4 items and spits out a avg number.
+    function calculateAvg(arrayLen4){
+        var sum = 0;
+        for(var i = 0; i < arrayLen4.length ; i++){
+            sum +=arrayLen4[i];
+        }
+        var avg = sum/arrayLen4.length;
+        return avg;
+    }
+
+</script>
 </body>
 </html>
